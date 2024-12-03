@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
 
-# Configuração inicial do Streamlit
+# Streamlit
 st.set_page_config(layout="wide", page_title="Dashboard de Sensores Ambientais")
 
 st.title("Dashboard de Análise de Sensores Ambientais")
@@ -17,7 +17,7 @@ if uploaded_file is not None:
     data['Concentracao'] = pd.to_numeric(data['Concentracao'], errors='coerce').fillna(0)
     st.success("Dados carregados com sucesso!")
 
-    # Exibir os primeiros dados
+    # Exibir os dados
     if st.checkbox("Exibir os primeiros registros do arquivo"):
         st.dataframe(data.head())
 
@@ -89,11 +89,10 @@ if uploaded_file is not None:
 
                 # Gráfico de pizza
                 with col3:
-                    # Gráfico de pizza com legenda ao lado e porcentagens
+                    # legenda ao lado e porcentagens
                     fig, ax = plt.subplots(figsize=(8, 6))
                     colors = sns.color_palette("pastel")
 
-                    # Criando o gráfico de pizza
                     concentracao_por_item.plot(
                         kind='pie',
                         colors=colors,
@@ -127,7 +126,7 @@ if uploaded_file is not None:
             else:
                 st.warning(f"O estado '{estado}' não possui valores positivos para concentração.")
 
-    # Análise de Todos os Municípios
+    # Todos os Municípios
     elif opcao == "Todos os Municípios":
         municipios = data['Nome do Município'].unique()
         st.write("Municípios disponíveis:")
@@ -160,11 +159,10 @@ if uploaded_file is not None:
 
             # Gráfico de pizza
             with col3:
-                # Gráfico de pizza com legenda ao lado e porcentagens
+                # legenda ao lado e porcentagens
                 fig, ax = plt.subplots(figsize=(8, 6))
                 colors = sns.color_palette("pastel")
 
-                # Criando o gráfico de pizza
                 concentracao_por_municipio.plot(
                     kind='pie',
                     colors=colors,
@@ -247,11 +245,10 @@ if uploaded_file is not None:
 
                 # Gráfico de pizza
                 with col3:
-                    # Gráfico de pizza com legenda ao lado e porcentagens
+                    # legenda ao lado e porcentagens
                     fig, ax = plt.subplots(figsize=(8, 6))
                     colors = sns.color_palette("pastel")
 
-                    # Criando o gráfico de pizza
                     concentracao_por_item.plot(
                         kind='pie',
                         colors=colors,
@@ -332,11 +329,10 @@ if uploaded_file is not None:
 
                     # Gráfico de pizza
                     with col3:
-                        # Gráfico de pizza com legenda ao lado e porcentagens
+                        # legenda ao lado e porcentagens
                         fig, ax = plt.subplots(figsize=(8, 6))
                         colors = sns.color_palette("pastel")
 
-                        # Criando o gráfico de pizza
                         concentracao_por_item.plot(
                             kind='pie',
                             colors=colors,
